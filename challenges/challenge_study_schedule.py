@@ -1,3 +1,13 @@
 def study_schedule(permanence_period, target_time):
-    print("🍌")
-    raise NotImplementedError
+    if not target_time:
+        return None
+
+    count = 0
+    for entry, exit in permanence_period:
+        if not isinstance(entry, int) or not isinstance(exit, int):
+            return None
+
+        if entry <= target_time <= exit:
+            count += 1
+
+    return count
